@@ -1,0 +1,67 @@
+body, html {
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  background-image: url("./assets/img/background.jpg");
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  height: 100vh; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.logo {
+  height: 180px;
+}
+
+.drop-content {
+  background-color: rgba(255, 255, 255, 0.075);
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f188;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  padding: 50px;
+}
+
+.bg-content {
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+h2 {
+  color: white;
+  margin-bottom: 30%;
+  font-weight: 100;
+}
+
+h3 {
+  color: white;
+  font-weight: 100;
+}
+
+p {
+  font-weight: 200;
+}
