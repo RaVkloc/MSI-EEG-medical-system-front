@@ -1,0 +1,8 @@
+.default-padding {
+  width: 100%;
+  padding: 50px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

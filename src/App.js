@@ -2,7 +2,9 @@ import React from 'react';
 import logo from './assets/img/brainlogo.png';
 import Loader from 'react-loader-spinner'
 import './App.css';
+import './GlobalStyle.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import FilePicker from './FilePicker';
 
 export default class App extends React.Component {
   state = {
@@ -19,6 +21,10 @@ export default class App extends React.Component {
     this.setState({step: 1, uploadProgress: 0})
   }
 
+  uploadProgress = (uploadProgress) => {
+    this.setState({uploadProgress})
+  }
+
   startFileAnalysis = () => {
     this.setState({step: 2})
   }
@@ -27,29 +33,30 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <div className="bg-image"></div>
-        
+
         {this.state.step <= 2 &&
           <div className="bg-content">
             <img className='logo' src={logo}/>
             <h2>EEG Medical System</h2>
-            <div className="drop-content">   
+            <div className="drop-content">
               {this.state.step === 0 &&
                 <>
-                  <h1>Drop here</h1>
-                  <p>Your EEG file</p>
+                  <FilePicker
+                    onFileUploadStart={this.startFileUpload}
+                    onUploadProgress={this.uploadProgress} />
                 </>
               }
               {this.state.step === 1 &&
-                <>
-                  <Loader type="Rings" color="white" height={80} width={80}/>    
+                <div className="default-padding">
+                  <Loader type="Rings" color="white" height={80} width={80}/>
                   <h3>File upload {this.state.uploadProgress}%</h3>
-                </>
+                </div>
               }
               {this.state.step === 2 &&
-                <>
-                  <Loader type="Circles" color="white" height={60} width={60}/>    
+                <div className="default-padding">
+                  <Loader type="Circles" color="white" height={60} width={60}/>
                   <h3>File processing in progress...</h3>
-                </>
+                </div>
               }
             </div>
           </div>
