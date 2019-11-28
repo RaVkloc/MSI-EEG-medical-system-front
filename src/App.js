@@ -5,6 +5,7 @@ import './App.css';
 import './GlobalStyle.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import FilePicker from './FilePicker';
+import Result from './Result';
 
 export default class App extends React.Component {
   state = {
@@ -63,10 +64,7 @@ export default class App extends React.Component {
         }
 
         {this.state.step > 2 &&
-          <div className="bg-content-2">
-            <img className='logo' src={logo}/>
-            <h2>EEG Medical System</h2>
-          </div>
+          <Result />
         }
       </div>
     );

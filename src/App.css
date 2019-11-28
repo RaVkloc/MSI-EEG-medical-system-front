@@ -8,9 +8,7 @@ body, html {
 
 .bg-image {
   background-image: url("./assets/img/background.jpg");
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
-  height: 100vh; 
+  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

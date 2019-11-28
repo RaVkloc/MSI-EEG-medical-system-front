@@ -1,0 +1,48 @@
+.bg-content-2 {
+  position: absolute;
+  top:0%;
+  left: 0%;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  justify-content: center;
+  font-size: x-large;
+  color: white;
+  padding-bottom: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.image-container {
+  height: 60vh;
+  width: 60vw;
+  margin: 15px;
+  background-color: rgb(180, 20, 20);
+}
+
+.descriptio-left-container {
+  height: 60vh;
+  width: calc(40vw - 30px);
+  margin: 15px;
+}
+
+.descriptio-right-container {
+  text-align: end;
+  height: 60vh;
+  width: calc(40vw - 30px);
+  margin: 15px;
+}
+
+.container-with-left-image {
+  margin-top: 20px;
+  display: flex;
+  width: 100vw;
+  justify-content: flex-start;
+}
+
+.container-with-right-image {
+  margin-top: 20px;
+  display: flex;
+  width: 100vw;
+  justify-content: flex-end;
+}
