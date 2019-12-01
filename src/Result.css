@@ -1,10 +1,26 @@
+.bg-content {
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .bg-content-2 {
   position: absolute;
-  top:0%;
+  top: 60px;
   left: 0%;
   z-index: 2;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 60px);
   overflow: auto;
   justify-content: center;
   font-size: x-large;

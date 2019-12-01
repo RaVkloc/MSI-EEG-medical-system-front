@@ -6,10 +6,12 @@ import './GlobalStyle.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import FilePicker from './FilePicker';
 import Result from './Result';
+import Login from './Login';
+import Registration from './Registration'
 
 export default class App extends React.Component {
   state = {
-    step: 0,
+    step: 4,
     uploadProgress: 0
   }
 
@@ -17,6 +19,12 @@ export default class App extends React.Component {
   //step 1 loader uploadu
   //step 2 loader przetwarzania pliku na serwerze
   //step 3 wyświetlenie wyników
+  //step 4 login
+  //step 5 rejestracja
+
+  filerUploadPicker = () => {
+    this.setState({step: 0})
+  }
 
   startFileUpload = () => {
     this.setState({step: 1, uploadProgress: 0})
@@ -30,11 +38,41 @@ export default class App extends React.Component {
     this.setState({step: 2})
   }
 
+  results = () => {
+    this.setState({step: 3})
+  }
+
+  login = () => {
+    this.setState({step: 0});
+  }
+
+  register = () => {
+    this.setState({step: 5})
+  }
+
+  logout = () => {
+    localStorage.setItem('token', "");
+    localStorage.setItem('refresh', "");
+    this.setState({step: 4})
+  }
+
   render = () => {
     return (
       <div className="App">
         <div className="bg-image"></div>
-
+        {this.state.step !== 4 && this.state.step !== 5 &&
+          <div className={'userPanel'}>
+            <div onClick={this.results} className={'logout-button'}>
+              <p className={'logout-text'}>Wyniki</p>
+            </div>
+            <div onClick={this.filerUploadPicker} className={'logout-button'}>
+              <p className={'logout-text'}>Wrzucanie</p>
+            </div>
+            <div onClick={this.logout} className={'logout-button left-margin'}>
+              <p className={'logout-text'}>Wyloguj</p>
+            </div>
+          </div>
+        }
         {this.state.step <= 2 &&
           <div className="bg-content">
             <img className='logo' src={logo}/>
@@ -63,8 +101,16 @@ export default class App extends React.Component {
           </div>
         }
 
-        {this.state.step > 2 &&
+        {this.state.step === 3 &&
           <Result />
+        }
+
+        {this.state.step === 4 &&
+          <Login onPressRegistration={this.register} onPress={this.login} />
+        }
+
+        {this.state.step === 5 &&
+          <Registration onPress={this.logout} />
         }
       </div>
     );
