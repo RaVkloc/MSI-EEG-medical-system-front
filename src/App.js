@@ -30,8 +30,9 @@ export default class App extends React.Component {
     this.setState({step: 1, uploadProgress: 0})
   }
 
-  uploadProgress = (uploadProgress) => {
-    this.setState({uploadProgress})
+  uploadProgress = (progress) => {
+    let uploadProgress = Math.round(progress)
+    this.setState({uploadProgress:uploadProgress})
   }
 
   startFileAnalysis = () => {
