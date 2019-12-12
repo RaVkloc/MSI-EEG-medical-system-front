@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
-// import './FilePicker.css'
+import './FilePicker.css'
 import './GlobalStyle.css'
 import Request from 'superagent';
 
@@ -26,30 +26,23 @@ function FilePicker(props) {
   const onDrop = useCallback(files => {
     props.onFileUploadStart()
     let csrftoken = getCookie('csrftoken');
-    // let formDataa = new FormData();
-    // formDataa.append('file', files[0])
     Request
-      .post('http://127.0.0.1:8000/api/upload/')
-      // .set('Content-Type', 'multipart/form-data')
+      .post('http://127.0.0.1:8020/api/upload/')
       .set('X-CSRFToken', csrftoken)
       .set('Authorization', 'Bearer ' + localStorage.getItem("token"))
-      // .send(formDataa)
       .field("file", files[0])
       .on('progress',progress => {
         /**
          * @param progress.percent displays the status of the file sent in percentage
         */
-      //  console.log(progress)
         props.onUploadProgress(progress.percent)
         console.log('Progress', progress.percent);
       })
-      .then(response => console.log("response",response))
-      .catch(err => console.warn(err.response))
-      // .end((res, err) => {
-      //   // console.log(res)
-      //     console.log("ełoł",err);
-      //     console.log("rispons",res);
-      // })
+      .then(response => {
+        console.log("response",response)
+        props.onUploadEnd()
+      })
+      .catch(err => {console.warn(err.response)})
   }, [])
 
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})

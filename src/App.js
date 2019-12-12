@@ -83,7 +83,8 @@ export default class App extends React.Component {
                 <>
                   <FilePicker
                     onFileUploadStart={this.startFileUpload}
-                    onUploadProgress={this.uploadProgress} />
+                    onUploadProgress={this.uploadProgress}
+                    onUploadEnd={this.startFileAnalysis} />
                 </>
               }
               {this.state.step === 1 &&
