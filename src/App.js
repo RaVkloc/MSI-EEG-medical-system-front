@@ -63,20 +63,20 @@ export default class App extends React.Component {
         {this.state.step !== 4 && this.state.step !== 5 &&
           <div className={'userPanel'}>
             <div onClick={this.results} className={'logout-button'}>
-              <p className={'logout-text'}>Wyniki</p>
+              <p className={'logout-text'}>Results</p>
             </div>
             <div onClick={this.filerUploadPicker} className={'logout-button'}>
-              <p className={'logout-text'}>Wrzucanie</p>
+              <p className={'logout-text'}>Add</p>
             </div>
             <div onClick={this.logout} className={'logout-button left-margin'}>
-              <p className={'logout-text'}>Wyloguj</p>
+              <p className={'logout-text'}>Log out</p>
             </div>
           </div>
         }
         {this.state.step <= 2 &&
           <div className="bg-content">
             <img className='logo' src={logo}/>
-            <h2>EEG Medical System</h2>
+            
             <div className="drop-content">
               {this.state.step === 0 &&
                 <>

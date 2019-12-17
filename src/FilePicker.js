@@ -28,7 +28,7 @@ function FilePicker(props) {
     let csrftoken = getCookie('csrftoken');
     console.log("csrftoken", csrftoken)
     Request
-      .put('http://127.0.0.1:8000/upload/')
+      .put('http://127.0.0.1:8020/upload/')
       .set("Content-Type", "application/json; charset=UTF-8")
       .set('X-CSRFToken', csrftoken)
       .send(JSON.stringify({"file": files[0]}))

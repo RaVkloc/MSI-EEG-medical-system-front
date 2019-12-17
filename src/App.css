@@ -2,12 +2,14 @@ body, html {
   height: 100vh;
 }
 
+html, body {margin: 0; height: 100%; overflow: hidden}
+
 * {
   box-sizing: border-box;
 }
 
 .bg-image {
-  background-image: url("./assets/img/background.jpg");
+  background-image: url("./assets/img/background.png");
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -80,7 +82,7 @@ h1 {
 h2 {
   color: white;
   margin-bottom: 5%;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 h3 {
@@ -94,4 +96,16 @@ p {
 
 .left-margin {
   margin-left: 40px;
+}
+
+* {
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+
+.error-label {
+  color:  rgb(216, 23, 152);
 }

@@ -40,16 +40,20 @@
   border-width: 1px;
   border-color: rgba(255, 255, 255, 0.3);
   height: 30px;
-  width: 200px;
+  width: 180px;
   margin-left: 10px;
 }
 
 .input-container {
   display: flex;
-  flex-direction: column;
-  width: 100%;
+  flex-direction: row;
+  width: 500px;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.input-container p {
+  width: 200px;
 }
 
 .login-button {
