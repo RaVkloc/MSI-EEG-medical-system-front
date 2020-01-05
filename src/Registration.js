@@ -3,6 +3,7 @@ import logo from './assets/img/brainlogo.png';
 import './Login.css';
 import './GlobalStyle.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import BaseURL from './utils/url'
 
 export default class Login extends React.Component {
   state = {
@@ -33,7 +34,8 @@ export default class Login extends React.Component {
     }
     else {
       this.setState({error: null})
-      fetch("http://127.0.0.1:8020/api/users/", {
+      let url = BaseURL + 'users/'
+      fetch(url, {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',

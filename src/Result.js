@@ -3,7 +3,7 @@ import logo from './assets/img/brainlogo.png';
 import './Result.css';
 import './GlobalStyle.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-
+import BaseURL from './utils/url'
 export default class Result extends React.Component {
 
   constructor(props){
@@ -50,7 +50,8 @@ export default class Result extends React.Component {
   }
 
   apiConnection = () => {
-    fetch('http://127.0.0.1:8020/api/results/', {
+    let url = BaseURL + 'results/'
+    fetch(url, {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',
@@ -83,8 +84,8 @@ export default class Result extends React.Component {
     let data = {
       refresh: localStorage.getItem("refresh")
     };
-
-    fetch('http://127.0.0.1:8020/api/refresh/', {
+    let url = BaseURL + 'refresh/'
+    fetch(url, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',

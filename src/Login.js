@@ -3,7 +3,7 @@ import logo from './assets/img/brainlogo.png';
 import './Login.css';
 import './GlobalStyle.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-
+import BaseURL from './utils/url'
 export default class Login extends React.Component {
   state = {
     login: "",
@@ -22,7 +22,8 @@ export default class Login extends React.Component {
       username: this.state.login,
       password: this.state.password
     }
-    fetch("http://127.0.0.1:8020/api/token/", {
+    let url = BaseURL + 'token/'
+    fetch(url, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',

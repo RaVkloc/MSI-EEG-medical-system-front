@@ -1,8 +1,9 @@
 import React, {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 import './FilePicker.css'
-import './GlobalStyle.css'
+// import './GlobalStyle.css'
 import Request from 'superagent';
+import BaseURL from './utils/url';
 
 function getCookie(name) {
     var cookieValue = null;
@@ -26,8 +27,9 @@ function FilePicker(props) {
   const onDrop = useCallback(files => {
     props.onFileUploadStart()
     let csrftoken = getCookie('csrftoken');
+    let url = BaseURL + 'upload/'
     Request
-      .post('http://127.0.0.1:8020/api/upload/')
+      .post(url)
       .set('X-CSRFToken', csrftoken)
       .set('Authorization', 'Bearer ' + localStorage.getItem("token"))
       .field("file", files[0])
