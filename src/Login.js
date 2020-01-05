@@ -74,9 +74,10 @@ export default class Login extends React.Component {
               <p>Password:</p><input className={'input' + (this.state.error ? ' invalid' : '')} type="password" value={this.state.password} onChange={this.changePassword} />
             </div>
           </label>
-          <div onClick={this.login} className={'login-button'}>
-            <p className="disable-select">ZALOGUJ</p>
-          </div>
+          <button onClick={this.login} className={'login-button'}>
+            {/* <p className="disable-select">ZALOGUJ</p> */}
+            ZALOGUJ
+          </button>
           {/* <input type="submit" value="Wyślij" /> */}
         </form>
         <p className={'register '}>Nie masz jeszcze konta? <a className={'register-active'} onClick={this.register}> Zarejestruj się!</a></p>
