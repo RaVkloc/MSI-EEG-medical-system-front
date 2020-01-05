@@ -5,6 +5,12 @@ import './GlobalStyle.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 export default class Result extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.timeout = null;
+  }
+
   state = {
     step: 'loading', //loading - ładowanie, empty - brak wyników, progressing - trwa przetwarzanie, result - pokazuje wyniki
     data: [
@@ -32,8 +38,13 @@ export default class Result extends React.Component {
     console.log(localStorage.getItem("token"))
   }
 
+  componentWillUnmount = () => {
+    clearTimeout(this.timeout)
+    this.timeout = null
+  }
+
   loadingResultShow = () => {
-    setTimeout(() => {
+    this.timeout = setTimeout(() => {
       this.apiConnection();
     }, 1000);
   }
@@ -56,6 +67,7 @@ export default class Result extends React.Component {
         step = 'empty';
       } else if(res.status === 202) {
         step = 'progressing';
+        this.loadingResultShow();
       } else if(res.status === 201) {
         step = 'result'
       }

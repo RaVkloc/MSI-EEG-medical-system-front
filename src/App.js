@@ -80,12 +80,10 @@ export default class App extends React.Component {
             
             <div className="drop-content">
               {this.state.step === 0 &&
-                <>
-                  <FilePicker
-                    onFileUploadStart={this.startFileUpload}
-                    onUploadProgress={this.uploadProgress}
-                    onUploadEnd={this.startFileAnalysis} />
-                </>
+                <FilePicker
+                  onFileUploadStart={this.startFileUpload}
+                  onUploadProgress={this.uploadProgress}
+                  onUploadEnd={this.results} />
               }
               {this.state.step === 1 &&
                 <div className="default-padding">
