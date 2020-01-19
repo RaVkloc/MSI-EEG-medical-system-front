@@ -30,10 +30,11 @@
 }
 
 .image-container {
-  height: 60vh;
-  width: 35vw;
+  /* height: 60vh; */
+  width: 50vw;
+  object-fit: contain;
   margin: 15px;
-  background-color: rgb(180, 20, 20);
+  /* background-color: rgb(180, 20, 20); */
 }
 
 .descriptio-left-container {
