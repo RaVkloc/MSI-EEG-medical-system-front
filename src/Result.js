@@ -4,6 +4,7 @@ import './Result.css';
 import './GlobalStyle.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import BaseURL from './utils/url'
+import Loader from 'react-loader-spinner'
 export default class Result extends React.Component {
 
   constructor(props){
@@ -13,29 +14,12 @@ export default class Result extends React.Component {
 
   state = {
     step: 'loading', //loading - ładowanie, empty - brak wyników, progressing - trwa przetwarzanie, result - pokazuje wyniki
-    data: [
-      {
-        image: "https://atlaseeg.pl/images/large/prawidlowe_EEG_rytm_alfa.jpg",
-        description: "dfsa afadfs  adfs as fas d afdghadsfgaasd dsad asdasdas sadasdas dasdas dasdas dsf  adsg gsad gdsa gsdaagsdgasdg sad "
-      },
-      {
-        image: "https://www.sciencenewsforstudents.org/sites/default/files/2016/09/main/articles/860-eeg-header-35s_SWK_REM.png",
-        description: "dfsa afadfs  adfs as fas d afdghadsfgadsf  adsg gsad gdsa gsdaagsdgasdg sad "
-      },
-      {
-        image: "https://cdn.psychologytoday.com/sites/default/files/styles/image-article_inline_full/public/field_blog_entry_images/2017-05/eeg_750.jpg?itok=iZuY01W6",
-        description: "dfsa afadfs  adfs as fas d afdghadsfgadsf  adsg gsad gdsa gsdaagsdgasdg sad "
-      },
-      {
-        image: "https://1bxqip36sc4m3f4wbi2m3axr-wpengine.netdna-ssl.com/wp-content/uploads/2018/08/brain-mapping.jpg",
-        description: "dfsa afadfs  adfs as fas d afdghadsfgadsf  adsg gsad gdsa gsdaagsdgasdg sad "
-      },
-    ],
+    data: [],
   }
 
   componentDidMount = () => {
     this.loadingResultShow();
-    console.log(localStorage.getItem("token"))
+    // console.log(localStorage.getItem("token"))
   }
 
   componentWillUnmount = () => {
@@ -59,7 +43,7 @@ export default class Result extends React.Component {
       }
     })
     .then(async res => {
-      console.log(res)
+      // console.log(res)
       let step = 'loading';
       let data = await res.json();
       if(res.status === 401) { //refresh
@@ -155,15 +139,15 @@ export default class Result extends React.Component {
   )
 
   toRender = {
-    'loading': this.renderLoading(),
-    'result': this.renderResult(),
-    'empty': this.renderEmpty(),
-    'progressing': this.renderProgressing(),
+    'loading': this.renderLoading,
+    'result': this.renderResult,
+    'empty': this.renderEmpty,
+    'progressing': this.renderProgressing,
   }
 
   render = () => {
     return(
-      this.toRender[this.state.step]
+      this.toRender[this.state.step]()
     )
   }
 }

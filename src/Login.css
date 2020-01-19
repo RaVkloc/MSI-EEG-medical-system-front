@@ -64,7 +64,7 @@
 
 .login-button {
   height: 35px;
-  width: 130px;
+  width: 150px;
   margin-top: 30px;
   display: flex;
   align-items: center;
@@ -75,6 +75,8 @@
   font-size: large;
   border-width: 1px;
   border-color: rgba(255, 255, 255, 0.3);
+  line-height: 35px;
+  text-align: center;
 }
 
 .login-button:hover {
@@ -96,4 +98,8 @@ p {
 
 .invalid {
   border-color: rgb(216, 23, 152);
+}
+
+.margin-right {
+  margin-right: 38px;
 }

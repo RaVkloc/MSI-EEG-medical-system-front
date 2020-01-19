@@ -39,6 +39,8 @@ function FilePicker(props) {
         */
         props.onUploadProgress(progress.percent)
         console.log('Progress', progress.percent);
+        // if(progress.percent === 100)
+        //   props.onUploadEnd() //only for tests
       })
       .then(response => {
         console.log("response",response)

@@ -69,7 +69,7 @@ export default class Login extends React.Component {
           <label className={'login_label'}>
             {this.state.error && <p className="error-label">Invalid cridentials!</p>}
             <div className={'input-container'}>
-              <p>Login:</p><input className={'input' + (this.state.error ? ' invalid' : '')} type="text" value={this.state.login} onChange={this.changeLogin} />
+              <p className={'margin-right'}>Login:</p><input className={'input' + (this.state.error ? ' invalid' : '')} type="text" value={this.state.login} onChange={this.changeLogin} />
             </div>
             <div className={'input-container'}>
               <p>Password:</p><input className={'input' + (this.state.error ? ' invalid' : '')} type="password" value={this.state.password} onChange={this.changePassword} />
