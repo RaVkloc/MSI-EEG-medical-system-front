@@ -108,33 +108,38 @@ export default class Result extends React.Component {
 
   renderResult = () => (
     <div className="bg-content-2">
-      {this.state.data.map((element, index) => {
-        if(index % 2 === 0)
-          return(this.renderLeftPart(element.description, element.image))
-        else
-          return(this.renderRightPart(element.description, element.image))
-      })}
+      <h1 className={'result-title'}>Analized data</h1>
+      <div>
+        {this.state.data.map((element, index) => {
+          if(index % 2 === 0)
+            return(this.renderLeftPart(element.description, element.image))
+          else
+            return(this.renderLeftPart(element.description, element.image))
+        })}
+      </div>
     </div>
   )
 
   renderLoading = () => (
     <div className="bg-content">
       <img className='logo' src={logo}/>
-      <p>Ładowanie...</p>
+      <p className="processingText">Loading...</p>
+      <Loader type="ThreeDots" color="white" height={60} width={60}/>
     </div>
   )
 
   renderEmpty = () => (
     <div className="bg-content">
       <img className='logo' src={logo}/>
-      <p>Brak prowadzonych badań</p>
+      <p className="processingText">No data</p>
     </div>
   )
 
   renderProgressing = () => (
     <div className="bg-content">
       <img className='logo' src={logo}/>
-      <p>Trwa przetwarzanie danych...</p>
+      <p className="processingText">Processing data...</p>
+      <Loader type="ThreeDots" color="white" height={60} width={60}/>
     </div>
   )
 

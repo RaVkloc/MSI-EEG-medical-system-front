@@ -56,11 +56,14 @@ function FilePicker(props) {
       <input {...getInputProps()} />
       {
         isDragActive ?
-          <p>Drop the files here ...</p>
+        <>
+          <h2>Drop the files here ...</h2>
+          <p></p>
+        </>
         :
           <>
-            <h1>Drop here</h1>
-            <p>Your EEG file</p>
+            <h2>Click/Drop here</h2>
+            <p>Your EEG file (.raw)</p>
           </>
       }
     </div>

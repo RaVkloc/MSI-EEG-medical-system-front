@@ -23,6 +23,8 @@
   height: calc(100vh - 60px);
   overflow: auto;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   font-size: x-large;
   color: white;
   padding-bottom: 20px;
@@ -30,17 +32,12 @@
 }
 
 .image-container {
-  /* height: 60vh; */
-  width: 50vw;
+  width: 60vw;
   object-fit: contain;
-  margin: 15px;
-  /* background-color: rgb(180, 20, 20); */
 }
 
 .descriptio-left-container {
-  height: 60vh;
-  width: calc(40vw - 30px);
-  margin: 15px;
+  /* margin: 15px; */
 }
 
 .descriptio-right-container {
@@ -51,10 +48,7 @@
 }
 
 .container-with-left-image {
-  margin-top: 20px;
-  display: flex;
-  width: 100vw;
-  justify-content: flex-start;
+  margin-top: 100px;
 }
 
 .container-with-right-image {
@@ -62,4 +56,10 @@
   display: flex;
   width: 100vw;
   justify-content: flex-end;
+}
+.processingText {
+  margin-top: 50px;
+}
+.result-title {
+  font-weight: bold;
 }

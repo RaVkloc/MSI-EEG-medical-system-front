@@ -90,7 +90,7 @@ export default class Login extends React.Component {
             </div>
           </label>
           <button onClick={this.register} className={'login-button'}>
-            ZAREJESTRUJ
+            SIGN UP
           </button>
           {/* <input type="submit" value="Wyślij" /> */}
         </form>
